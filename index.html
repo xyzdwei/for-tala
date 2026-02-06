@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Tala 💖</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #ffc0cb, #ff9ecf);
+        overflow: hidden;
+    }
+
+    /* Stars */
+    .star {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        max-width: 400px;
+        animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        color: #ff4d94;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 18px;
+        color: #444;
+    }
+
+    button {
+        margin: 15px;
+        padding: 12px 25px;
+        font-size: 16px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .yes {
+        background-color: #ff4d94;
+        color: white;
+    }
+
+    .yes:hover {
+        background-color: #ff1a75;
+    }
+
+    .no {
+        background-color: #ddd;
+    }
+
+    #response {
+        margin-top: 20px;
+        font-size: 20px;
+        color: #ff4d94;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Hi Tala ✨</h1>
+    <p>
+        Tomorrow, February 7, marks our first month of talking 💖<br><br>
+        I just want to ask...
+    </p>
+
+    <h2>Will you be my Valentine Date? 🌹</h2>
+
+    <button class="yes" onclick="sayYes()">YES 💕</button>
+    <button class="no" onclick="moveNo(this)">NO 😜</button>
+
+    <div id="response"></div>
+</div>
+
+<script>
+    // Generate stars
+    for (let i = 0; i < 100; i++) {
+        let star = document.createElement("div");
+        star.className = "star";
+        star.style.top = Math.random() * window.innerHeight + "px";
+        star.style.left = Math.random() * window.innerWidth + "px";
+        star.style.animationDuration = (Math.random() * 2 + 1) + "s";
+        document.body.appendChild(star);
+    }
+
+    function sayYes() {
+        document.getElementById("response").innerHTML =
+            "Yaaay! 💖 I can't wait to spend Valentine's with you, Tala! 🌹✨";
+    }
+
+    function moveNo(button) {
+        let x = Math.random() * (window.innerWidth - 100);
+        let y = Math.random() * (window.innerHeight - 50);
+        button.style.position = "absolute";
+        button.style.left = x + "px";
+        button.style.top = y + "px";
+    }
+</script>
+
+</body>
+</html>
